@@ -1,0 +1,29 @@
+public class Solution {//input: 6, 8, 7, 4, 3, 2 output: 7, 2, 3, 4, 6, 8
+    
+    public void nextPermutation(int[] num) {
+        int len = num.length;
+        
+        for(int i=len-1; i>0; i--){
+            if(num[i]>num[i-1]){
+                int firstindex = i-1;//first index
+                for(int j = len-1; j > firstindex; j--){
+                    if(num[j]>num[firstindex]){
+                        int secondindex = j;//second index
+                        int t;
+                        t=num[firstindex];
+                        num[firstindex]=num[secondindex];
+                        num[secondindex]=t;
+                        
+                        Arrays.sort(num, firstindex+1, len);
+                        return;
+                        }
+                }
+                
+            }
+          
+        }
+        
+        Arrays.sort(num);
+    }
+    
+}
