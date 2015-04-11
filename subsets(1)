@@ -1,0 +1,38 @@
+package test;
+
+import java.util.*;
+
+import javax.xml.soap.Node;
+
+public class test {//subset
+	
+	
+	public static void main(String[] argv) 
+	{
+		int[] S = {1, 2, 3};
+		ArrayList<Integer> set = new ArrayList<Integer>();
+        for(int i=0; i<S.length; i++){
+            set.add(S[i]);
+            
+        }
+        int setsize = set.size();
+        int finalsize = (int)(Math.pow(2, setsize));
+        String str = "";
+        
+        for(int i = 0; i<finalsize; i++){
+            str = Integer.toBinaryString(i);
+            int strlength = str.length();
+            for(int k = 0; k< (setsize-strlength); k++){
+                str = "0" + str;
+                //System.out.println(str);
+            }
+            System.out.print("{");
+            for(int j = 0; j<setsize; j++){
+            	if(str.charAt(j) == '1'){
+            		System.out.print((set.get(j)) + "");
+            	}
+            }
+            System.out.print("}");
+        	}
+		}
+}
